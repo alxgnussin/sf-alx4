@@ -9,7 +9,7 @@ from sources_data import schedule, day_names
 from models import db, Teacher, Booking, Order, Goals, Schedule, FreeTime
 
 app = Flask(__name__)
-app.secret_key = 'Y&blNBvsINyA5irX^OwZ*RkbWQSnT~pM'
+app.secret_key = os.environ.get("SECRET_KEY")
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
