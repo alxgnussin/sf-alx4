@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block container %}
 <main class="container mt-3 mb-5">
-  <section>
+<!--  <section>-->
 <!--  <h1 class="h1 text-center mx-auto mt-4 py-5"><strong>Найдите идеального <br>репетитора английского, <br>занимайтесь онлайн</strong></h1>-->
 <!--  <div class="text-center mb-5">-->
 
@@ -24,7 +24,7 @@
               <p class="float-right">Рейтинг: {{t.rating}} Ставка: {{t.price}} / час</p>
               <h2 class="h4">{{t.name}}</h2>
               <p>{{t.about|truncate(70)}}</p>
-              <a href="/profiles/{{t.id}}/" class="btn btn-outline-primary btn-sm mr-3">Показать информацию и расписание</a>
+              <a href="{{ url_for('render_profiles', trainer_id=t.id) }}" class="btn btn-outline-primary btn-sm mr-3">Показать информацию и расписание</a>
 
             </div>
           </div>

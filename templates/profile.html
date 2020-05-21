@@ -22,7 +22,7 @@
                 <h5 class="mt-4">{{x['day_name']}}</h5>
                 {% if x['times']|length > 0 %}
                   {% for time in x['times'] %}
-                    <a href="/booking/{{dic['id']}}/{{x['week_day']}}/{{time|urlencode}}/" class="btn btn-outline-success mr-2 mb-1" style="width: 150px;">{{time}} свободно</a>
+                    <a href="{{ url_for('render_booking', trainer_id=dic['id'], day=x['week_day'], lesson_time=time)|urlencode }}" class="btn btn-outline-success mr-2 mb-1" style="width: 150px;">{{time}} свободно</a>
                   {% endfor %}
                 {% else %}
                   <p>Свободных уроков нет</p>

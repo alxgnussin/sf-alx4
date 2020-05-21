@@ -7,7 +7,7 @@
 
     <div class="btn-group mx-auto mb-0" role="group" aria-label="Basic example">
       {% for goal in goals %}
-      <a href="/goals/{{goal.id}}/" class="btn btn-outline-secondary">{{goal.name}}</a>
+      <a href="{{ url_for('render_goals', goal=goal.id) }}" class="btn btn-outline-secondary">{{goal.name}}</a>
       {% endfor %}
     </div>
 
@@ -24,7 +24,7 @@
               <p class="float-right">Рейтинг: {{t.rating}} Ставка: {{t.price}} / час</p>
               <h2 class="h4">{{t.name}}</h2>
               <p>{{t.about|truncate(180)}}</p>
-              <a href="/profiles/{{t.id}}/" class="btn btn-outline-primary btn-sm mr-3 mb-2">Показать информацию и расписание</a>
+              <a href="{{ url_for('render_profiles', trainer_id=t.id) }}" class="btn btn-outline-primary btn-sm mr-3 mb-2">Показать информацию и расписание</a>
 
             </div>
           </div>
