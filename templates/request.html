@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block container %}
+  <main class="container mt-5">
+    <div class="col-12 col-sm-10 col-lg-6 offset-lg-3 offset-sm-1">
+      <form action="/request_done/" method="POST" class="card mb-5">
+        <div class="card-body text-center pt-5">
+          <h1 class="h3 card-title mt-4 mb-2">Подбор преподавателя</h1>
+          <p class="px-5">Напишите, чего вам нужно и&nbsp;мы&nbsp;подберем отличных&nbsp;ребят</p>
+        </div>
+        <hr>
+        <div class="card-body mx-3">
+          <div class="row">
+            <div class="col">
+              <p>Какая цель занятий?</p>
+              {% for x in goal %}
+              <div class="form-check ">
+                <input type="radio" class="form-check-input" name="goal" value="{{x.id}}" id="{{x.id}}" checked>
+                <label class="form-check-label" for="{{x.id}}">
+                  {{x.name}}
+                </label>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="col">
+              <p>Сколько времени есть?</p>
+              {% for y in time %}
+              <div class="form-check">
+                <input type="radio" class="form-check-input" name="time" value="{{y.id}}" id="{{y.id}}" checked>
+                <label class="form-check-label" for="{{y.id}}">
+                  {{y.time}} часов в&nbsp;неделю
+                </label> 
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="card-body mx-3">
+          <label class="mb-1 mt-2">Вас зовут</label>
+          <input class="form-control" type="text" name="clientName" placeholder="Ваше имя">
+          <label class="mb-1 mt-2">Ваш телефон</label>
+          <input class="form-control" type="tel" name="clientPhone" placeholder="Номер телефона">
+          <input type="submit" class="btn btn-primary mt-4 mb-2" value="Найдите мне преподавателя">
+        </div>
+      </form>
+    </div>
+  </main>
+{% endblock %}
